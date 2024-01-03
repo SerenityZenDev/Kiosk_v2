@@ -70,17 +70,16 @@ public class Main {
                     default -> System.out.println("1또는 2를 입력해주세요");
                 }
             }
-
         }
-
-
-
-
     }
     public static int scan(){
-        Scanner sc = new Scanner(System.in);
-        int inputscan = Integer.parseInt(sc.nextLine());
-        return inputscan;
+        try{
+            Scanner sc = new Scanner(System.in);
+            int inputscan = Integer.parseInt(sc.nextLine());
+            return inputscan;
+        }catch (NumberFormatException e){
+            return 0;
+        }
     }
 
 
