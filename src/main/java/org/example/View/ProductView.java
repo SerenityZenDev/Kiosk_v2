@@ -2,6 +2,8 @@ package org.example.View;
 import org.example.Controller.ProductController;
 import org.example.Model.Product;
 
+import java.util.ArrayList;
+
 public class ProductView {
     private ProductController productController;
 
@@ -13,12 +15,20 @@ public class ProductView {
         return productController;
     }
 
-    public void printBurger(){
+    public void printProductList(ArrayList<Product> productArrayList){
         int number = 1;
         double price = 0;
-        for (Product burger : productController.getProductArrayList()){
-            price = burger.getPrice()/1000;
-            System.out.println(number++ +". " + burger.getName() + "\t| W " + price + "\t| " + burger.getDescription());
+        for (Product product : productArrayList){
+            price = product.getPrice()/1000;
+            System.out.println(number++ +". " + product.getName() + "\t| W " + price + "\t| " + product.getDescription());
+        }
+    }
+    public void printBeer(){
+        int number = 1;
+        double price = 0;
+        for (Product Beer : productController.getBeerArrayList()){
+            price = Beer.getPrice()/1000;
+            System.out.println(number++ +". " + Beer.getName() + "\t| W " + price + "\t| " + Beer.getDescription());
         }
     }
 }
