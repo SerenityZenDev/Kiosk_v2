@@ -19,7 +19,7 @@ public class ProductView {
         int number = 1;
         double price = 0;
         for (Product product : productArrayList){
-            price = product.getPrice()/1000;
+            price = (double)product.getPrice()/1000;
             System.out.println(number++ +". " + product.getName() + "\t| W " + price + "\t| " + product.getDescription());
         }
     }

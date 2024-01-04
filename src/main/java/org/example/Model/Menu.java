@@ -4,12 +4,10 @@ package org.example.Model;
 public class Menu {
     String name; // 메뉴 이름
     String description; // 메뉴 설명
-    int price; // 메뉴 가격
 
-    public Menu(String name, String description, int price) {
+    public Menu(String name, String description ) {
         this.name = name;
         this.description = description;
-        this.price = price;
     }
 
     public String getName() {
@@ -20,7 +18,7 @@ public class Menu {
         return description;
     }
 
-    public double getPrice() {
-        return price;
+    public void setName(String name) {
+        this.name = name;
     }
 }
