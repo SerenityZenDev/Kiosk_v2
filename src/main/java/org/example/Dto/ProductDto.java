@@ -1,32 +1,40 @@
-package org.example.Controller;
+package org.example.Dto;
 
 import org.example.Model.Product;
 
 import java.util.ArrayList;
 
-public class ProductController {
-    private ArrayList<Product> BurgerArrayList;
+public class ProductDto {
+    private ArrayList<Product> SingleBurgerArrayList;
+    private ArrayList<Product> DoubleBurgerArrayList;
     private ArrayList<Product> ForzenCustardArrayList;
     private ArrayList<Product> DrinkArrayList;
     private ArrayList<Product> BeerArrayList;
 
-    public ProductController(ArrayList<Product> burgerArrayList, ArrayList<Product> forzenCustardArrayList,
-                             ArrayList<Product> drinkArrayList, ArrayList<Product> beerArrayList) {
-        BurgerArrayList = burgerArrayList;
-        ForzenCustardArrayList = forzenCustardArrayList;
-        DrinkArrayList = drinkArrayList;
-        BeerArrayList = beerArrayList;
+    public ProductDto() {
+        SingleBurgerArrayList = new ArrayList<>();
+        DoubleBurgerArrayList = new ArrayList<>();;
+        ForzenCustardArrayList = new ArrayList<>();;
+        DrinkArrayList = new ArrayList<>();;
+        BeerArrayList = new ArrayList<>();;
 
         initProducts();
     }
 
     private void initProducts(){
-        // Burger 기본 상품 등록
-        BurgerArrayList.add(new Product("ShackBurger","토마토, 양상추, 쉑소스가 토핑된 치즈버거",6900));
-        BurgerArrayList.add(new Product("SmokeShack","베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거",8900));
-        BurgerArrayList.add(new Product("Shroom Burger","몬스터 치즈와 체다 치즈로 속을 채운 베지테리안 버거",9400));
-        BurgerArrayList.add(new Product("Cheeseburger","포테이토 번과 비프패티, 치즈가 토핑된 치즈버거",6900));
-        BurgerArrayList.add(new Product("Hamburger","비프패티를 기반으로 야채가 들어간 기본버거",5400));
+        // SigleBurger 기본 상품 등록
+        SingleBurgerArrayList.add(new Product("ShackBurger","토마토, 양상추, 쉑소스가 토핑된 치즈버거",6900));
+        SingleBurgerArrayList.add(new Product("SmokeShack","베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거",8900));
+        SingleBurgerArrayList.add(new Product("Shroom Burger","몬스터 치즈와 체다 치즈로 속을 채운 베지테리안 버거",9400));
+        SingleBurgerArrayList.add(new Product("Cheeseburger","포테이토 번과 비프패티, 치즈가 토핑된 치즈버거",6900));
+        SingleBurgerArrayList.add(new Product("Hamburger","비프패티를 기반으로 야채가 들어간 기본버거",5400));
+
+        // DoubleBurger 기본 상품 등록
+        DoubleBurgerArrayList.add(new Product("ShackBurger(Double)","토마토, 양상추, 쉑소스가 토핑된 치즈버거",12420));
+        DoubleBurgerArrayList.add(new Product("SmokeShack(Double)","베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거",16020));
+        DoubleBurgerArrayList.add(new Product("Shroom Burger(Double)","몬스터 치즈와 체다 치즈로 속을 채운 베지테리안 버거",16920));
+        DoubleBurgerArrayList.add(new Product("Cheeseburger(Double)","포테이토 번과 비프패티, 치즈가 토핑된 치즈버거",12420));
+        DoubleBurgerArrayList.add(new Product("Hamburger(Double)","비프패티를 기반으로 야채가 들어간 기본버거",9720));
 
         // ForzenCustard 기본 상품 등록
         ForzenCustardArrayList.add(new Product("VanillaIceCream", "바닐라 향이 풍부한 아이스크림", 4500));
@@ -48,13 +56,13 @@ public class ProductController {
         BeerArrayList.add(new Product("Brooklyn Brown Ale", "부드러운 맛이 특징인 브루클린 브라운 에일", 7200));
         BeerArrayList.add(new Product("Brooklyn Sorachi Ace", "소라치 에이스 홉 사용한 특별한 브루클린 맥주", 8500));
         BeerArrayList.add(new Product("Brooklyn Bel Air Sour", "상큼하고 산뜻한 벨에어 사워 에일", 8000));
-
-
     }
 
-    public ArrayList<Product> getBurgerArrayList() {
-        return BurgerArrayList;
+    public ArrayList<Product> getSingleBurgerArrayList() {
+        return SingleBurgerArrayList;
     }
+
+    public ArrayList<Product> getDoubleBurgerArrayList() {return DoubleBurgerArrayList;}
 
     public ArrayList<Product> getForzenCustardArrayList() {
         return ForzenCustardArrayList;
