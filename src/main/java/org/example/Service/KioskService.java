@@ -55,4 +55,12 @@ public class KioskService {
     public Order getAfterOrder() {
         return afterOrder;
     }
+
+    public void plusWaitingNumber(){
+        order.plusWaitingNumber();
+    }
+
+    public void deleteOrder(){
+        order.deleteOrder();
+    }
 }

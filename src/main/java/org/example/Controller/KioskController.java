@@ -1,8 +1,6 @@
 package org.example.Controller;
 
 import org.example.Dto.ProductDto;
-import org.example.Model.Order;
-import org.example.Model.Product;
 import org.example.Service.KioskService;
 import org.example.View.View;
 
@@ -115,7 +113,7 @@ public class KioskController {
             kioskService.orderListInit();
             view.orderMenuChoose(kioskService.getOrder());
             Thread.sleep(3000);
-            kioskService.getOrder().plusWaitingNumber();
+            kioskService.plusWaitingNumber();
         }
     }
 
@@ -123,7 +121,7 @@ public class KioskController {
         view.cancelMenu();
         subMenuInputValue = scan();
         if (subMenuInputValue == 1){
-            kioskService.getOrder().deleteOrder();
+            kioskService.deleteOrder();
         }
     }
 }
