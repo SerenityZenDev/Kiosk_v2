@@ -7,7 +7,7 @@ import org.example.View.View;
 
 import java.util.Scanner;
 
-public class OrderController {
+public class KioskController {
     private ProductDto productDto = new ProductDto();
     private Product product = new Product();
     private Order order = new Order();
@@ -15,13 +15,13 @@ public class OrderController {
     private View view = new View();
 
     // 첫번째 선택 : 첫 메인 메뉴에서 선택지 확인 / (1~4) : 음식 | 5 : 주문 | 6 : 취소
-    int mainMenuInputValue = 0;
+    private int mainMenuInputValue = 0;
     // 두번째 선택 : 음식, 주문, 취소 안에서 / 음식의 경우 음식 종류 | 주문의 경우 주문여부 | 취소의 경우 취소여부
-    int subMenuInputValue = 0;
+    private int subMenuInputValue = 0;
     // 세번째 선택 : 음식 세부사항 (옵션 - 싱글, 더블 사이즈)
-    int menuOptionInputValue = 0;
+    private int menuOptionInputValue = 0;
     // 4번째 선택 : 장바구니 추가 여부 확인
-    int addBasket = 0;
+    private int addBasket = 0;
 
 
     public void start() throws InterruptedException {
@@ -38,9 +38,9 @@ public class OrderController {
                 case 1 -> { // 1번 햄버거 선택
                     // 햄버거 메뉴 출력
                     String menuText = product.productText(productDto.getSingleBurgerArrayList());
+                    view.foodMenu(menuText, "Burger");
 
                     // 햄버거 선택
-                    view.foodMenu(menuText, "Burger");
                     subMenuInputValue = scan() -1;
                     product = productDto.getSingleBurgerArrayList().get(subMenuInputValue);
                     String typeMenu = product.toString();
@@ -63,12 +63,12 @@ public class OrderController {
                         order.addOrder(product);
                     }
                 }
-                case 2 -> {
+                case 2 -> { // 2번 냉동과자 선택
                     // 냉동과자 메뉴 출력
                     String menuText = product.productText(productDto.getForzenCustardArrayList());
+                    view.foodMenu(menuText, "ForzenCustard");
 
                     // 냉동과자 선택
-                    view.foodMenu(menuText, "ForzenCustard");
                     subMenuInputValue = scan() -1;
                     product = productDto.getForzenCustardArrayList().get(subMenuInputValue);
                     String typeMenu = product.toString();
@@ -83,12 +83,12 @@ public class OrderController {
                         order.addOrder(product);
                     }
                 }
-                case 3 -> {
+                case 3 -> { // 3번 음료 선택
                     // 음료 메뉴 출력
                     String menuText = product.productText(productDto.getDrinkArrayList());
+                    view.foodMenu(menuText, "Drink");
 
                     // 음료 선택
-                    view.foodMenu(menuText, "Drink");
                     subMenuInputValue = scan() -1;
                     product = productDto.getDrinkArrayList().get(subMenuInputValue);
                     String typeMenu = product.toString();
@@ -103,12 +103,12 @@ public class OrderController {
                         order.addOrder(product);
                     }
                 }
-                case 4 -> {
+                case 4 -> { // 4번 맥주 선택
                     // 맥주 메뉴 출력
                     String menuText = product.productText(productDto.getBeerArrayList());
+                    view.foodMenu(menuText, "Beer");
 
                     // 맥주 선택
-                    view.foodMenu(menuText, "Beer");
                     subMenuInputValue = scan() -1;
                     product = productDto.getBeerArrayList().get(subMenuInputValue);
                     String typeMenu = product.toString();
@@ -123,7 +123,7 @@ public class OrderController {
                         order.addOrder(product);
                     }
                 }
-                case 5 -> {
+                case 5 -> { // 5번 장바구니 선택
                     // 장바구니 옵션
                     view.orderMenu(order.toString(), order.orderPrice());
                     subMenuInputValue = scan();
@@ -140,7 +140,7 @@ public class OrderController {
                         order.plusWaitingNumber();
                     }
                 }
-                case 6 -> {
+                case 6 -> { // 6번 취소 선택
                     // 장바구니 취소 옵션
                     view.cancelMenu();
                     subMenuInputValue = scan();
@@ -155,9 +155,9 @@ public class OrderController {
     }
 
 
-    public OrderController() {}
+    public KioskController() {}
 
-    public static int scan(){
+    private static int scan(){
         try{
             Scanner sc = new Scanner(System.in);
             int inputscan = Integer.parseInt(sc.nextLine());

@@ -25,7 +25,7 @@ public class View {
 
         );
     }
-    // MainMenu (1~4) - 1(메뉴 선택 후)
+    // MainMenu (1) - 1(메뉴 선택 후)
     public void foodMenuOption(String menu, double price){
         System.out.println(
                 menu +
@@ -33,7 +33,7 @@ public class View {
                         "1. Single(W "+price/1000+")        2. Double(W "+price*1.8/1000+")"
         );
     }
-    // MainMenu (1~4) - 1 - 1(옵션 선택 후)
+    // MainMenu (1) - 1 - 1(옵션 선택 후) or MainMenu (2~4) - 1(메뉴 선택 후)
     public void foodMenuChoose(String menu){
         System.out.println(
                 menu +
@@ -41,10 +41,11 @@ public class View {
                         "1. 확인        2. 취소"
         );
     }
+    // 장바구니 추가 선택
     public void foodMenuChooseCorrect(String foodName){
         System.out.println(foodName + " 가 장바구니에 추가되었습니다.");
     }
-    // MainMenu 5번
+    // MainMenu 5번 주문하기
     public void orderMenu(String orderMenu, double price){
         System.out.println(
                 "아래와 같이 주문 하시겠습니까?\n\n" +

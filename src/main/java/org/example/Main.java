@@ -1,12 +1,12 @@
 package org.example;
 
-import org.example.Controller.OrderController;
+import org.example.Controller.KioskController;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        OrderController orderController = new OrderController();
-        orderController.start();
+        KioskController kioskController = new KioskController();
+        kioskController.start();
     }
 }
 
