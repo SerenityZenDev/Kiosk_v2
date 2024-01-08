@@ -1,5 +1,10 @@
 package org.example.View;
 
+import org.example.Model.Order;
+import org.example.Model.Product;
+
+import java.util.ArrayList;
+
 public class View {
     public void printMainMenu(){
         // 메뉴판 출력
@@ -16,21 +21,23 @@ public class View {
                         "6. Cancel      | 진행중인 주문을 취소합니다.)\n");
     }
     // MainMenu 1~4번
-    public void foodMenu(String menu, String menuType){
+    public void foodMenu(ArrayList<Product> menu, String menuType){
+        int number = 1;
         System.out.println(
                 "SHAKESHACK BURGER 에 오신걸 환영합니다.\n" +
                         "아래 상품메뉴판을 보시고 상품을 골라 입력해주세요.\n\n" +
-                        "[ "+menuType+" MENU ]\n" +
-                        menu
-
+                        "[ "+menuType+" MENU ]\n"
         );
+        for (Product product : menu){
+            System.out.println(number++ + ". " + product.toString());
+        }
     }
     // MainMenu (1) - 1(메뉴 선택 후)
-    public void foodMenuOption(String menu, double price){
+    public void foodMenuOption(Product product){
         System.out.println(
-                menu +
+                product.toString() +
                         "위 메뉴의 어떤 옵션으로 추가하시겠습니까?\n" +
-                        "1. Single(W "+price/1000+")        2. Double(W "+price*1.8/1000+")"
+                        "1. Single(W "+(double)product.getPrice()/1000+")        2. Double(W "+product.getPrice()*1.8/1000+")"
         );
     }
     // MainMenu (1) - 1 - 1(옵션 선택 후) or MainMenu (2~4) - 1(메뉴 선택 후)
@@ -42,26 +49,26 @@ public class View {
         );
     }
     // 장바구니 추가 선택
-    public void foodMenuChooseCorrect(String foodName){
-        System.out.println(foodName + " 가 장바구니에 추가되었습니다.");
+    public void foodMenuChooseCorrect(Product product){
+        System.out.println(product.getName() + " 가 장바구니에 추가되었습니다.");
     }
     // MainMenu 5번 주문하기
-    public void orderMenu(String orderMenu, double price){
+    public void orderMenu(Order orders){
         System.out.println(
                 "아래와 같이 주문 하시겠습니까?\n\n" +
                         "[ Orders ]\n" +
-                        orderMenu +
+                        orders.toString() +
                         "\n[ Total ]\n"+
-                        "W " + price +
+                        "W " + orders.orderPrice() +
                         "\n\n1. 주문      2. 메뉴판"
         );
     }
     // MainMenu 5 - 1
-    public void orderMenuChoose(int waitingNumber){
+    public void orderMenuChoose(Order order){
         System.out.println(
                 "주문이 완료되었습니다!\n" +
                         "\n" +
-                        "대기번호는 [ "+waitingNumber+" ] 번 입니다.\n" +
+                        "대기번호는 [ "+ order.getWaitingNumber() +" ] 번 입니다.\n" +
                         "(3초후 메뉴판으로 돌아갑니다.)"
         );
     }
@@ -73,13 +80,13 @@ public class View {
         );
     }
     // MainMenu 0번 숨겨진 기능
-    public void hideMenu(double salePrice, String saleMenu){
+    public void hideMenu(Order order){
         System.out.println(
                 "[ 총 판매금액 현황 ]\n" +
-                        "현재까지 총 판매된 금액은 [ W "+salePrice+" ] 입니다.\n\n" +
+                        "현재까지 총 판매된 금액은 [ W "+order.getTotalSalePrice()+" ] 입니다.\n\n" +
                         "[ 총 판매상품 목록 현황 ]\n" +
                         "현재까지 총 판매된 상품 목록은 아래와 같습니다.\n" +
-                        saleMenu +
+                        order.orderListName() +
                         "\n\n 버튼을 눌러 돌아가기"
         );
     }
