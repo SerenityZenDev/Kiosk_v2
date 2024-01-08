@@ -8,11 +8,11 @@ import org.example.View.View;
 import java.util.Scanner;
 
 public class KioskController {
-    private ProductDto productDto = new ProductDto();
+    private final ProductDto productDto = new ProductDto();
     private Product product = new Product();
-    private Order order = new Order();
-    private Order afterOrder = new Order();
-    private View view = new View();
+    private final Order order = new Order();
+    private final Order afterOrder = new Order();
+    private final View view = new View();
 
     // 첫번째 선택 : 첫 메인 메뉴에서 선택지 확인 / (1~4) : 음식 | 5 : 주문 | 6 : 취소
     private int mainMenuInputValue = 0;
