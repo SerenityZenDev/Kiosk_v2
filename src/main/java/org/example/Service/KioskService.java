@@ -14,18 +14,18 @@ public class KioskService {
 
     public void selectProduct(int mainMenuInputValue, int subMenuInputValue){
         switch (mainMenuInputValue){
-            case 1 ->{product = productDto.getSingleBurgerArrayList().get(subMenuInputValue);}
-            case 2 ->{product = productDto.getForzenCustardArrayList().get(subMenuInputValue);}
-            case 3 ->{product = productDto.getDrinkArrayList().get(subMenuInputValue);}
-            case 4 ->{product = productDto.getBeerArrayList().get(subMenuInputValue);}
+            case 1 -> product = productDto.getSingleBurgerArrayList().get(subMenuInputValue);
+            case 2 -> product = productDto.getForzenCustardArrayList().get(subMenuInputValue);
+            case 3 -> product = productDto.getDrinkArrayList().get(subMenuInputValue);
+            case 4 -> product = productDto.getBeerArrayList().get(subMenuInputValue);
+            default -> throw new IllegalStateException("Unexpected value: " + mainMenuInputValue);
         }
     }
 
-    public Product menuOptionDouble(int subMenuInputValue, int menuOptionInputValue){
+    public void menuOptionDouble(int subMenuInputValue, int menuOptionInputValue){
         if (menuOptionInputValue == 2){ // 더블일 경우 상품 더블로 변경
             product = productDto.getDoubleBurgerArrayList().get(subMenuInputValue);
         }
-        return product;
     }
 
     public void addBasket(){
